@@ -21,7 +21,8 @@ module.exports = function (options) {
           useUnifiedTopology: true,
         },
       )
-        .then(next);
+        .then(() => next())
+        .catch(next);
   
       // const db = mongoose.connection;
       // db.on("error", (error) => {
