@@ -1,13 +1,13 @@
-const { getSession } = require('next-auth/client');
 const { ApiError } = require('next/dist/next-server/server/api-utils');
+const getUserMiddleware = require('./get-user');
 
 module.exports = async function requireUserMiddleware(req, res) {
-  const session = await getSession({ req });
+  const user = await getUserMiddleware(req, res);
 
-  if (!session || !session.user) {
+  if (!user) {
     throw new ApiError(401, "Unauthorized");
   }
 
-  return session.user;
+  return user;
 }
 
