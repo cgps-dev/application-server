@@ -8,6 +8,8 @@ module.exports = async function (req, res) {
 
   const { serverRuntimeConfig } = getConfig();
 
+  delete user.image;
+
   const accessToken = await jwt.encode({
     token: user,
     secret: serverRuntimeConfig.secret,
