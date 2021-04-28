@@ -11,7 +11,7 @@ module.exports = async function (req, res) {
   delete user.image;
 
   const accessToken = await jwt.encode({
-    token: user,
+    token: { id: user.id },
     secret: serverRuntimeConfig.secret,
     maxAge: 5 * 365 * 24 * 60 * 60, // 1825 days
   });
