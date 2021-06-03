@@ -1,31 +1,17 @@
 {
-  "_args": [
-    [
-      "gitlab:cgps/dev/application-server#master",
-      "/Users/ka10/Documents/microreact/server-next"
-    ]
-  ],
-  "_from": "gitlab:cgps/dev/application-server#master",
-  "_id": "cgps-application-server@gitlab:cgps/dev/application-server#c6319fc3d8ffd253727858ff3f431b6caec06679",
-  "_inBundle": false,
-  "_integrity": "",
-  "_location": "/cgps-application-server",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "git",
-    "raw": "gitlab:cgps/dev/application-server#master",
-    "rawSpec": "gitlab:cgps/dev/application-server#master",
-    "saveSpec": "gitlab:cgps/dev/application-server#master",
-    "fetchSpec": null,
-    "gitCommittish": "master"
+  "name": "cgps-application-server",
+  "version": "3.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "gitlab:cgps/dev/application-server#c6319fc3d8ffd253727858ff3f431b6caec06679",
-  "_spec": "gitlab:cgps/dev/application-server#master",
-  "_where": "/Users/ka10/Documents/microreact/server-next",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:cgps/dev/application-server.git"
+  },
   "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
@@ -34,7 +20,7 @@
     "emailjs": "^2.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "ldapauth-fork": "gitlab:cgps/open-source/node-ldapauth-fork",
+    "ldapauth-fork": "gitlab:cgps/open-source/node-ldapauth-fork.git",
     "mongoose": "^5.11.16",
     "passport": "^0.4.1",
     "passport-facebook": "^2.0.0",
@@ -44,17 +30,5 @@
     "passport-passwordless": "github:paroga/passport-passwordless",
     "passport-twitter": "^1.0.3",
     "passwordless-mongostore": "github:epiccoolguy/passwordless-mongostore"
-  },
-  "description": "",
-  "license": "ISC",
-  "main": "index.js",
-  "name": "cgps-application-server",
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.com:cgps/dev/application-server.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "3.0.0"
+  }
 }
