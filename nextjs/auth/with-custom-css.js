@@ -1,10 +1,11 @@
-const signin = require("next-auth/dist/server/pages/signin").default;
-const signout = require("next-auth/dist/server/pages/signout").default;
-const verifyRequest = require("next-auth/dist/server/pages/verify-request").default;
-const error = require("next-auth/dist/server/pages/error").default;
-const css = require("next-auth/dist/css/index");
+const path = require("path");
 
-const renderPageModule = require("next-auth/dist/server/pages/index.js");
+const signin = require(path.join(process.cwd(), "node_modules/next-auth/dist/server/pages/signin")).default;
+const signout = require(path.join(process.cwd(), "node_modules/next-auth/dist/server/pages/signout")).default;
+const verifyRequest = require(path.join(process.cwd(), "node_modules/next-auth/dist/server/pages/verify-request")).default;
+const error = require(path.join(process.cwd(), "node_modules/next-auth/dist/server/pages/error")).default;
+const css = require(path.join(process.cwd(), "node_modules/next-auth/dist/css/index"));
+const renderPageModule = require(path.join(process.cwd(), "node_modules/next-auth/dist/server/pages/index.js"));
 
 renderPageModule.default = (req, res) => {
   const { baseUrl, basePath, callbackUrl, csrfToken, providers, theme } = req.options;

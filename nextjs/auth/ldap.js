@@ -1,9 +1,9 @@
 /* eslint-disable new-cap */
 
-const Providers = require("next-auth/dist/providers").default;
+const Providers = require("next-auth/providers").default;
 const LdapAuth = require("ldapauth-fork");
 
-const getDatabaseAdapter = require('./get-database-adapter');
+const getDatabaseAdapter = require("./get-database-adapter");
 
 function login(config, credentials) {
   const client = new LdapAuth(config);

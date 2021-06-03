@@ -1,17 +1,17 @@
-const { getSession } = require('next-auth/client');
-const { ApiError } = require('next/dist/next-server/server/api-utils');
+const { getSession } = require("next-auth/client");
+const { ApiError } = require("next/dist/next-server/server/api-utils");
 
-const getDatabaseAdapter = require('../nextjs/auth/get-database-adapter');
+const getDatabaseAdapter = require("../nextjs/auth/get-database-adapter");
 
 async function getUserFromAccessToken(req, res) {
   const accessToken = req.headers["access-token"];
 
   if (accessToken) {
-      const jwt = require("next-auth/dist/lib/jwt").default;
-      const getConfig = require("next/config").default;
-      const { serverRuntimeConfig } = getConfig();
-  
-      try {
+    const jwt = require("next-auth/dist/lib/jwt").default;
+    const getConfig = require("next/config").default;
+    const { serverRuntimeConfig } = getConfig();
+
+    try {
       const user = await jwt.decode({
         secret: serverRuntimeConfig.secret,
         token: accessToken,
