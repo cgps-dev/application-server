@@ -7,7 +7,7 @@ async function getUserFromAccessToken(req, res) {
   const accessToken = req.headers["access-token"];
 
   if (accessToken) {
-    const jwt = require("next-auth/dist/lib/jwt").default;
+    const jwt = require("next-auth/jwt").default;
     const getConfig = require("next/config").default;
     const { serverRuntimeConfig } = getConfig();
 
