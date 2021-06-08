@@ -10,7 +10,7 @@ module.exports = async function (req, res) {
 
   const accessToken = await jwt.encode({
     token: { id: user.id },
-    secret: serverRuntimeConfig.secret,
+    secret: serverRuntimeConfig.auth.secret,
     maxAge: 5 * 365 * 24 * 60 * 60, // 1825 days
   });
 
