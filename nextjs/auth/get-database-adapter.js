@@ -3,6 +3,10 @@ module.exports = async function getDatabaseAdapter(req, res) {
   const getConfig = require("next/config").default;
   const { serverRuntimeConfig } = getConfig();
   const adapter = adapters.Default(serverRuntimeConfig.auth.database)
-  const dbAdapter = await adapter.getAdapter({ logger: console });
+  const dbAdapter = await adapter.getAdapter({
+    logger: console,
+    secret: serverRuntimeConfig.auth.secret,
+    session: serverRuntimeConfig.auth.session,
+  });
   return dbAdapter;
 }
