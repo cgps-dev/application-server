@@ -13,7 +13,7 @@ async function getUserFromAccessToken(req, res) {
 
     try {
       const user = await jwt.decode({
-        secret: serverRuntimeConfig.secret,
+        secret: serverRuntimeConfig.auth.secret,
         token: accessToken,
       });
       const userId = user.id;
