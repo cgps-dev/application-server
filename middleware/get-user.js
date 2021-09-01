@@ -15,6 +15,7 @@ async function getUserFromAccessToken(req, res) {
       const user = await jwt.decode({
         secret: serverRuntimeConfig.auth.secret,
         token: accessToken,
+        maxAge: 5 * 365 * 24 * 60 * 60, // 1825 days
       });
       const userId = user.id;
       const adapter = await getDatabaseAdapter();
