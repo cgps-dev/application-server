@@ -24,7 +24,7 @@ async function getUserFromAccessToken(req, res) {
     }
     catch (err) {
       if (err?.code === "ERR_JWS_VERIFICATION_FAILED") {
-        throw new ApiError(401, "Unauthorized");
+        throw new ApiError(403, "Forbidden");
       }
       else {
         throw err;
