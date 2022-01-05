@@ -18,6 +18,11 @@ function login(config, credentials) {
           resolve(null);
         }
         else {
+          if (config.groupDn) {
+            if (!profile._groups.some((x) => x.dn === config.groupDn)) {
+              resolve(null);
+            }
+          }
           resolve(profile);
         }
       },
