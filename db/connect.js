@@ -15,7 +15,7 @@ module.exports = async function connect(options) {
     mongoose.connect(
       options.url,
       {
-        // useFindAndModify: false,
+        useFindAndModify: false,
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
