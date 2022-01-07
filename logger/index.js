@@ -75,8 +75,8 @@ if (process.env.LOGGER_FILENAME) {
       metadata.user = context.user.id || context.user.email || context.user.email;
     }
     if (context?.req) {
-      metadata.userAgent = context.req.headers["user-agent"];
-      metadata.remoteAddress = context.req.socket.remoteAddress;
+      metadata.browser = context.req.headers["user-agent"];
+      metadata.ip = context.req.socket.remoteAddress;
     }
     info(
       message,
