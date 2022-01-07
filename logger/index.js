@@ -72,12 +72,17 @@ if (process.env.LOGGER_FILENAME) {
   const info = logger.info;
   logger.info = function (message, metadata, context) {
     if (context?.user) {
-      metadata.user = context.user.id || context.user.email || context.user.email;
+      metadata.user = context.user.id || context.user.email || context.user;
     }
+    else if (context?.req?.user) {
+      metadata.user = context.req.user.id || context.req.user.email || context.req.user;
+    }
+
     if (context?.req) {
       metadata.browser = context.req.headers["user-agent"];
       metadata.ip = context.req.socket.remoteAddress;
     }
+
     info(
       message,
       metadata,
