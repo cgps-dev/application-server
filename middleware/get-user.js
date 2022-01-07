@@ -7,12 +7,12 @@ async function getUserFromAccessToken(req, res) {
   const accessToken = req.headers["access-token"];
 
   if (accessToken) {
-    const jwt = require("next-auth/jwt").default;
+    const { decode } = require("next-auth/jwt");
     const getConfig = require("next/config").default;
     const { serverRuntimeConfig } = getConfig();
 
     try {
-      const user = await jwt.decode({
+      const user = await decode({
         secret: serverRuntimeConfig.auth.secret,
         token: accessToken,
         maxAge: 5 * 365 * 24 * 60 * 60, // 1825 days

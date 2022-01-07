@@ -1,4 +1,4 @@
-const jwt = require("next-auth/jwt").default;
+const { encode } = require("next-auth/jwt");
 const getConfig = require("next/config").default;
 
 const requireUserMiddleware = require('./require-user');
@@ -8,7 +8,7 @@ module.exports = async function (req, res) {
 
   const { serverRuntimeConfig } = getConfig();
 
-  const accessToken = await jwt.encode({
+  const accessToken = await encode({
     token: { id: user.id },
     secret: serverRuntimeConfig.auth.secret,
     maxAge: 5 * 365 * 24 * 60 * 60, // 1825 days
