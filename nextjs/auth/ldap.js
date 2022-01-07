@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 
-const Providers = require("next-auth/providers").default;
+
+const CredentialsProvider = require("next-auth/providers/credentials").default;
 const LdapAuth = require("ldapauth-fork");
 
 const getDatabaseAdapter = require("./get-database-adapter");
@@ -45,7 +46,7 @@ module.exports = function(options) {
     ...options,
   };
 
-  return Providers.Credentials(
+  return CredentialsProvider(
     {
       name: config.name,
       credentials: {
