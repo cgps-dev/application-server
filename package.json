@@ -22,14 +22,6 @@
     "express-session": "^1.17.1",
     "ldapauth-fork": "gitlab:cgps/open-source/node-ldapauth-fork.git",
     "mongoose": "^5.11.16",
-    "passport": "^0.4.1",
-    "passport-facebook": "^2.0.0",
-    "passport-google-oauth20": "^1.0.0",
-    "passport-jwt": "^4.0.0",
-    "passport-ldapauth": "^0.5.0",
-    "passport-passwordless": "github:paroga/passport-passwordless",
-    "passport-twitter": "^1.0.3",
-    "passwordless-mongostore": "github:epiccoolguy/passwordless-mongostore",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
   }
