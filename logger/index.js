@@ -37,7 +37,7 @@ if (process.env.LOGGER_FILENAME) {
       transports: [
         new winston.transports.DailyRotateFile(
           {
-            dirname: process.env.LOGGER_DIR ?? ".",
+            dirname: process.env.LOGGER_DIR ?? "logs",
             handleExceptions: true,
             handleRejections: true,
             filename: `${process.env.LOGGER_FILENAME ?? "application"}-%DATE%.log`,
@@ -75,8 +75,8 @@ if (process.env.LOGGER_FILENAME) {
       metadata.user = context.user.id || context.user.email || context.user.email;
     }
     if (context?.req) {
-      metadata.userAgent = req.headers["user-agent"];
-      metadata.remoteAddress = req.socket.remoteAddress;
+      metadata.userAgent = context.req.headers["user-agent"];
+      metadata.remoteAddress = context.req.socket.remoteAddress;
     }
     info(
       message,
