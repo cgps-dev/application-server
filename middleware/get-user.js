@@ -39,12 +39,14 @@ module.exports = async function getUserMiddleware(req, res) {
   const session = await getSession({ req });
 
   if (session && session.user) {
+    req.user = session.user;
     return session.user;
   }
 
   const accessTokenUser = await getUserFromAccessToken(req, res);
 
   if (accessTokenUser) {
+    req.user = accessTokenUser;
     return accessTokenUser;
   }  
 
