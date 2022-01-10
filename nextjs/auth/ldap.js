@@ -1,10 +1,9 @@
 /* eslint-disable new-cap */
 
-
 const CredentialsProvider = require("next-auth/providers/credentials").default;
 const LdapAuth = require("ldapauth-fork");
 
-const getDatabaseAdapter = require("./get-database-adapter");
+const adapter = require("./adapter");
 
 function login(config, credentials) {
   const client = new LdapAuth(config);
@@ -61,14 +60,14 @@ module.exports = function(options) {
           return null;
         }
 
-        const adapter = await getDatabaseAdapter();
+        // const adapter = await getDatabaseAdapter();
         const email = profile[config.emailAttribute || "mail"];
         const uid = profile[config.idAttribute || "uid"];
         const name = profile[config.nameAttribute || "displayName"];
 
         const userDoc = await adapter.getUserByEmail(email);
         if (userDoc) {
-          userDoc.name = uid;
+          userDoc.uid = uid;
           userDoc.name = name;
           return userDoc;
         }

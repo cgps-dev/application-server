@@ -1,4 +1,4 @@
-const { getSession } = require("next-auth/client");
+const { getSession } = require("next-auth/react");
 const { ApiError } = require("next/dist/next-server/server/api-utils");
 
 const getDatabaseAdapter = require("../nextjs/auth/get-database-adapter");
