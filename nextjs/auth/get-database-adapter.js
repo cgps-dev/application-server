@@ -9,4 +9,4 @@ module.exports = async function getDatabaseAdapter(req, res) {
     session: serverRuntimeConfig.auth.session,
   });
   return dbAdapter;
-}
+};
