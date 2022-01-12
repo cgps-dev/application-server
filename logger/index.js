@@ -70,6 +70,9 @@ if (process.env.LOGGER_FILENAME) {
     }
   );
   const info = logger.info;
+  const debug = logger.debug;
+  const warn = logger.warn;
+  const error = logger.error;
   logger.info = function (message, metadata, context) {
     if (context?.user) {
       metadata.user = context.user.id || context.user.email || context.user;
@@ -88,6 +91,9 @@ if (process.env.LOGGER_FILENAME) {
       metadata,
     );
   };
+  logger.debug = logger.debug.bind(logger);
+  logger.warn = logger.warn.bind(logger);
+  logger.error = logger.error.bind(logger);
   module.exports = logger;
 }
 else {
