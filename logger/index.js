@@ -1,4 +1,5 @@
 const path = require("path");
+const querystring = require('querystring');
 const winston = require("winston");
 
 require("winston-daily-rotate-file");
@@ -73,6 +74,7 @@ if (process.env.LOGGER_FILENAME) {
   const debug = logger.debug;
   const warn = logger.warn;
   const error = logger.error;
+  const reqHeaders = new URLSearchParams(process.env.LOGGER_REQ_HEADERS || "browser=user-agent");
   logger.info = function (message, metadata, context) {
     if (context?.user) {
       metadata.user = context.user.id || context.user.email || context.user;
@@ -84,6 +86,9 @@ if (process.env.LOGGER_FILENAME) {
     if (context?.req) {
       metadata.browser = context.req.headers["user-agent"];
       metadata.ip = context.req.socket.remoteAddress;
+      for (const [ metadataKey, headerName ] of reqHeaders.entries()) {
+        metadata[metadataKey] = context.req.headers[headerName]
+      }
     }
 
     info(
