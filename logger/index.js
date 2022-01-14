@@ -84,7 +84,6 @@ if (process.env.LOGGER_FILENAME) {
     }
 
     if (context?.req) {
-      metadata.browser = context.req.headers["user-agent"];
       metadata.ip = context.req.socket.remoteAddress;
       for (const [ metadataKey, headerName ] of reqHeaders.entries()) {
         metadata[metadataKey] = context.req.headers[headerName]
