@@ -1,7 +1,6 @@
 const { getSession } = require("next-auth/react");
 const { ApiError } = require("next/dist/next-server/server/api-utils");
-
-const getDatabaseAdapter = require("../nextjs/auth/get-database-adapter");
+const adapter = require("../nextjs/auth/adapter");
 
 async function getUserFromAccessToken(req, res) {
   const accessToken = req.headers["access-token"];
@@ -18,7 +17,6 @@ async function getUserFromAccessToken(req, res) {
         maxAge: 5 * 365 * 24 * 60 * 60, // 1825 days
       });
       const userId = user.id;
-      const adapter = await getDatabaseAdapter();
       const userDoc = await adapter.getUser(userId);
       return userDoc || undefined;
     }
