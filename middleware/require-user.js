@@ -9,5 +9,4 @@ module.exports = async function requireUserMiddleware(req, res) {
   }
 
   return user;
-}
-
+};

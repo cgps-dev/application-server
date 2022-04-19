@@ -46,7 +46,7 @@ module.exports = async function getUserMiddleware(req, res) {
   if (accessTokenUser) {
     req.user = accessTokenUser;
     return accessTokenUser;
-  }  
+  }
 
   return undefined;
-}
+};
