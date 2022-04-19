@@ -5,6 +5,8 @@ const LdapAuth = require("ldapauth-fork");
 
 const adapter = require("./adapter");
 
+const logger = require("../../logger");
+
 function login(config, credentials) {
   const client = new LdapAuth(config);
 
@@ -14,7 +16,7 @@ function login(config, credentials) {
       credentials.password,
       (error, profile) => {
         if (error) {
-          console.error(error);
+          logger.error(error);
           resolve(null);
         }
         else {
