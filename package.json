@@ -6,12 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.com:cgps/dev/application-server.git"
-  },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
@@ -20,7 +16,7 @@
     "emailjs": "^2.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "ldapauth-fork": "gitlab:cgps/open-source/node-ldapauth-fork.git",
+    "ldapauth-fork": "^5.0.2",
     "mongoose": "^5.11.16",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
