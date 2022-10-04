@@ -1,4 +1,4 @@
-const { ApiError } = require('next/dist/next-server/server/api-utils');
+const { ApiError } = require('next/dist/server/api-utils');
 const getUserMiddleware = require('./get-user');
 
 module.exports = async function requireUserMiddleware(req, res) {

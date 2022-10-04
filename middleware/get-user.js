@@ -1,5 +1,5 @@
 const { getSession } = require("next-auth/react");
-const { ApiError } = require("next/dist/next-server/server/api-utils");
+const { ApiError } = require("next/dist/server/api-utils");
 const adapter = require("../nextjs/auth/adapter");
 
 async function getUserFromAccessToken(req, res) {
